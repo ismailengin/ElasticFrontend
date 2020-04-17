@@ -1,5 +1,16 @@
-function HomePage() {
-    return <div class="text-red-800">Welcome to Next.js!</div>
-  }
+const customHandleClick = () => console.log('Free pizza!')
 
-  export default HomePage
+function HomePage() {
+    return (
+    <div className="container mx-auto">
+            <input className="border-solid border-gray-400 border-2" type="text" />
+            <button onClick={customHandleClick}>
+                Button
+            </button>
+
+        </div>
+
+    );
+}
+
+export default HomePage
