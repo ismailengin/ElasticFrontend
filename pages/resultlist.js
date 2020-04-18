@@ -9,31 +9,33 @@ function ResultList(props) {
         const linkSource = `data:application/pdf;base64,${pdf}`;
         const downloadLink = document.createElement("a");
         console.log(title);
-        const fileName = title+".pdf";
+        const fileName = title + ".pdf";
         downloadLink.href = linkSource;
         downloadLink.download = fileName;
-        downloadLink.click();}
-
+        downloadLink.click();
+    }
     return (
         <div className="container">
             <table className="table-auto">
-            {props.itemFromParent.length == 0 ? null :  <tr>
-      <th className="px-4 py-2">Title</th>
-      <th className="px-4 py-2">Author</th>
-    </tr> }
-            {_.map(props.itemFromParent, ((item) => (
-                <tbody>
-                    <tr>
-                        <td className="border px-4 py-2">{item.title}</td>
-                        <td className="border px-4 py-2">{item.body}</td>
-                        <td><button onClick={() => downloadPDF(item.title, pdf_base64)}> Download Pdf </button></td>
-                    </tr>
-                </tbody>
-            ))
-            )}
+                <thead>
+                    {props.itemFromParent.length == 0 ? null : <tr>
+                        <th className="px-4 py-2">Title</th>
+                        <th className="px-4 py-2">Author</th>
+                    </tr>}
+                </thead>
+                {_.map(props.itemFromParent, ((item) => (
+                    <tbody>
+                        <tr>
+                            <td className="border px-4 py-2">{item.title}</td>
+                            <td className="border px-4 py-2">{item.body}</td>
+                            <td><button onClick={() => downloadPDF(item.title, pdf_base64)}> Download Pdf </button></td>
+                        </tr>
+                    </tbody>
+                ))
+                )}
             </table>
         </div>
-
+    
     )
 }
 

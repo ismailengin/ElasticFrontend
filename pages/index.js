@@ -1,18 +1,31 @@
 import { useState } from 'react'
 import ResultList from './resultlist'
+import Loader from './loader'
 const superagent = require('superagent')
 
 
 function HomePage() {
     const [initialText, setText] = useState(" ")
     const [name, setName] = useState([])
-
-    const customHandleClick = (initialText) => {
-        superagent.get('https://jsonplaceholder.typicode.com/posts').query({ userId: initialText }).end((err, res) => {
-            // console.log(res.body)
+    const [isLoading, setLoading] = useState(false);
+    const customHandleClick = async initialText => {
+        setLoading(true)
+        try {
+            const res = await superagent.get('https://jsonplaceholder.typicode.com/posts').query({ userId: initialText });
             setName(res.body)
-        })
+            setLoading(false)
+        } catch (error) {
+            console.log(error)
+        }
     }
+    // async function customHandleClick (initialText) {
+    //     setLoading(true)
+    //     .then((err, res) => {
+    //         // console .log(res.body)
+    //         setName(res.body)
+    //         setLoading(false)
+    //     })
+    // }
 
     return (
         <div className="container mx-auto">
@@ -22,7 +35,8 @@ function HomePage() {
                     Button
             </button>
             </div>
-            <ResultList itemFromParent={name} />
+            {isLoading ? <Loader/> : null}
+            <ResultList itemFromParent={name} loadingChild={isLoading}/>
         </div>
 
     );
