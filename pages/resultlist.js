@@ -21,6 +21,7 @@ function ResultList(props) {
                     {props.itemFromParent.length == 0 ? null : <tr>
                         <th className="px-4 py-2">Title</th>
                         <th className="px-4 py-2">Author</th>
+                        <th className="px-4 py-2">Download Link</th>
                     </tr>}
                 </thead>
                 {_.map(props.itemFromParent, ((item) => (
@@ -28,7 +29,7 @@ function ResultList(props) {
                         <tr>
                             <td className="border px-4 py-2">{item.title}</td>
                             <td className="border px-4 py-2">{item.body}</td>
-                            <td><button onClick={() => downloadPDF(item.title, pdf_base64)}> Download Pdf </button></td>
+                            <td className="border px-4 py-2"><button onClick={() => downloadPDF(item.title, pdf_base64)}> Download Pdf </button></td>
                         </tr>
                     </tbody>
                 ))
