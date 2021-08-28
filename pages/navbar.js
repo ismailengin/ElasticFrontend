@@ -10,6 +10,9 @@ function Navbar() {
                 <Link href="/elastic">
                     <a title="Elastic Page" className="btn-primary text-black font-bold px-2 py-2 mx-2">Elastic Page</a>
                 </Link>
+                <Link href="/db">
+                    <a title="Db Page" className="btn-primary text-black font-bold px-2 py-2 mx-2">Db Page</a>
+                </Link>
         </nav>
         </div>
     )
