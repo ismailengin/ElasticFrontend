@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import ResultList from './resultlist'
+import DBResultList from './DBResultList'
 import Layout from './layout'
 import ClipLoader from "react-spinners/ClipLoader";
 const superagent = require('superagent')
@@ -35,7 +35,7 @@ function Elastic () {
             </div>
             {/* {isLoading ? <Loader/> : null} */}
             <div className="flex justify-center pt-6"><ClipLoader loading={isLoading}/></div>
-            <ResultList itemFromParent={name} loadingChild={isLoading}/>
+            <DBResultList key={name} itemFromParent={name} loadingChild={isLoading}/>
         </div>
         </Layout>
     );
