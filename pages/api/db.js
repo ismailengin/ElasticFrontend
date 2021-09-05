@@ -1,4 +1,4 @@
-import {query} from '../../lib/db';
+import {query} from '../../lib/dbDriver';
 
 
 export default async function handler(req, res) {
