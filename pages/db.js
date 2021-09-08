@@ -6,7 +6,7 @@ const superagent = require('superagent')
 import DBInput from './dbinput';
 
 
-function Elastic () {
+function DBPage ({columns}) {
     const [initialText, setText] = useState(" ");
     const [name, setName] = useState([]);
     const [isLoading, setLoading] = useState(false); 
@@ -51,4 +51,4 @@ function Elastic () {
     );
 }
 
-export default Elastic;
+export default DBPage;
