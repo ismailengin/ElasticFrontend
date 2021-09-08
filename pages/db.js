@@ -27,8 +27,9 @@ function DBPage ({columns}) {
     }
 
     const onClickAddElement = event => {
-        setInputList(inputList.concat(<DBInput key={inputList.length}/>))
+        setInputList(inputList.concat(<DBInput columnList={columns} key={inputList.length}/>))
     }
+    // console.log(columns)
 
     return (
         <Layout> 
