@@ -51,4 +51,10 @@ function DBPage ({columns}) {
     );
 }
 
+DBPage.getInitialProps = async (ctx) => {
+    const res = await superagent.post('http://localhost:3000/api/db').send({query: "SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME=N'Employee'"})
+    const json = await res.body
+    return { columns: json }
+}
+
 export default DBPage;
