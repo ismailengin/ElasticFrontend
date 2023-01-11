@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "autoprefixer": "^10.3.3",
-    "knex": "^0.95.10",
+    "knex": "^2.4.0",
     "lodash": "^4.17.21",
     "next": "11.1.0",
     "postcss-import": "^14.0.2",
